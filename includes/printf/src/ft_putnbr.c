@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 09:16:55 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/29 16:07:56 by omfelk           ###   ########.fr       */
+/*   Created: 2023/10/09 19:09:46 by omfelk            #+#    #+#             */
+/*   Updated: 2023/10/23 11:54:14 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-
-#include <fcntl.h>
 #include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include "printf/include/ft_printf.h"
-#include "libft/libft.h"
-#include "minilibx-linux/mlx.h"
+#include <stdio.h>
 
-/* add_file_tab */
-char	**generated_tab_for_map(char **argv);
-char	*on_a_line(int fd);
-/*--------------*/
+int	ft_putnbr(long n)
+{
+	int	i;
 
-/* get_next_line */
-char	*get_next_line(int fd);
-/* ------------- */
-#endif
+	i = 0;
+	if (n < 0)
+	{
+		i++;
+		write(1, "-", 1);
+		i += ft_putnbr(n * (-1));
+	}
+	if (n > 9)
+	{
+		i += ft_putnbr(n / 10);
+		i += ft_putnbr(n % 10);
+	}
+	else if (n >= 0 && n < 10)
+	{
+		i++;
+		n = n + '0';
+		write(1, &n, 1);
+	}
+	return (i);
+}

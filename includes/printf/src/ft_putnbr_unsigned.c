@@ -1,32 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_putnbr_unsigned.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 09:16:55 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/29 16:07:56 by omfelk           ###   ########.fr       */
+/*   Created: 2023/10/09 19:09:46 by omfelk            #+#    #+#             */
+/*   Updated: 2023/10/21 10:33:20 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-
-#include <fcntl.h>
 #include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include "printf/include/ft_printf.h"
-#include "libft/libft.h"
-#include "minilibx-linux/mlx.h"
 
-/* add_file_tab */
-char	**generated_tab_for_map(char **argv);
-char	*on_a_line(int fd);
-/*--------------*/
+static void	ft_write(unsigned int n)
+{
+	char	c;
 
-/* get_next_line */
-char	*get_next_line(int fd);
-/* ------------- */
-#endif
+	if (n > 9)
+	{
+		ft_write((n / 10));
+		ft_write((n % 10));
+	}
+	else
+	{
+		c = n + '0';
+		write(1, &c, 1);
+	}
+}
+
+int	ft_putnbr_unsigned(unsigned int n)
+{
+	int		i;
+
+	i = 0;
+	ft_write(n);
+	if (n == 0)
+		i++;
+	while (n > 0)
+	{
+		i++;
+		n = n / 10;
+	}
+	return (i);
+}

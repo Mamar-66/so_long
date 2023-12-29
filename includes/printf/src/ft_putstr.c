@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 09:16:55 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/29 16:07:56 by omfelk           ###   ########.fr       */
+/*   Created: 2023/10/09 18:42:26 by omfelk            #+#    #+#             */
+/*   Updated: 2023/10/21 10:49:18 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-
-#include <fcntl.h>
 #include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include "printf/include/ft_printf.h"
-#include "libft/libft.h"
-#include "minilibx-linux/mlx.h"
 
-/* add_file_tab */
-char	**generated_tab_for_map(char **argv);
-char	*on_a_line(int fd);
-/*--------------*/
+int	ft_putstr(char *s)
+{
+	size_t	i;
 
-/* get_next_line */
-char	*get_next_line(int fd);
-/* ------------- */
-#endif
+	i = 0;
+	if (s != NULL)
+	{
+		while (s[i] != '\0')
+		{
+			write(1, &s[i], 1);
+			i++;
+		}
+	}
+	else
+	{
+		write(1, "(null)", 6);
+		i += 6;
+	}
+	return (i);
+}

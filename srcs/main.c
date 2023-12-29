@@ -6,15 +6,29 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:21:14 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/28 14:40:27 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/29 17:00:03 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-#include "../minilibx-linux/mlx.h"
 
 int	main(int argc, char **argv)
 {
+	char	**map_tab;
+
+	if (argc < 2)
+		return (ft_printf("error %d argument\n", argc));
+	map_tab = generated_tab_for_map(argv);
+	ft_printf("%s\n", map_tab[0]);
+	ft_printf("%s\n", map_tab[1]);
+	ft_printf("%s\n", map_tab[2]);
+	ft_printf("%s\n", map_tab[3]);
+	ft_printf("%s\n", map_tab[4]);
+	free(map_tab[4]);
+	free(map_tab[3]);
+	free(map_tab[2]);
+	free(map_tab[1]);
+	free(map_tab[0]);
 	return (1);
 }
 /* int	function(int keycode, void *param)

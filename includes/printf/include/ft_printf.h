@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 09:16:55 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/29 16:07:56 by omfelk           ###   ########.fr       */
+/*   Created: 2023/10/18 14:53:02 by omfelk            #+#    #+#             */
+/*   Updated: 2023/10/23 11:38:30 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include "printf/include/ft_printf.h"
-#include "libft/libft.h"
-#include "minilibx-linux/mlx.h"
+# include <stdio.h>
+# include <unistd.h>
+# include <limits.h>
 
-/* add_file_tab */
-char	**generated_tab_for_map(char **argv);
-char	*on_a_line(int fd);
-/*--------------*/
+int		ft_printf(const char *text, ...);
+int		ft_putchar(char c);
+int		ft_putstr(char *s);
+int		ft_putnbr(long n);
+int		ft_putptr(unsigned long long n, char *base);
+int		ft_putnbr_base(int nbr, char *base);
+int		ft_putnbr_unsigned(unsigned int n);
 
-/* get_next_line */
-char	*get_next_line(int fd);
-/* ------------- */
 #endif
