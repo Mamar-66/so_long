@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:21:14 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/29 17:00:03 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/30 14:27:12 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,36 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (ft_printf("error %d argument\n", argc));
 	map_tab = generated_tab_for_map(argv);
-	ft_printf("%s\n", map_tab[0]);
-	ft_printf("%s\n", map_tab[1]);
-	ft_printf("%s\n", map_tab[2]);
-	ft_printf("%s\n", map_tab[3]);
-	ft_printf("%s\n", map_tab[4]);
-	free(map_tab[4]);
-	free(map_tab[3]);
-	free(map_tab[2]);
-	free(map_tab[1]);
-	free(map_tab[0]);
+	affichetab(map_tab);
+	free_tab_map(map_tab);
 	return (1);
 }
+
+void	affichetab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		ft_printf("%s\n", tab[i]);
+		i++;
+	}
+}
+
+void	free_tab_map(char **tab_map)
+{
+	int	i;
+
+	i = 0;
+	while (tab_map[i])
+	{
+		free(tab_map[i]);
+		i++;
+	}
+	free(tab_map);
+}
+
 /* int	function(int keycode, void *param)
 {
 	(void)param;

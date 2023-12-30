@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:16:55 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/29 16:07:56 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/30 13:58:24 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 #include "printf/include/ft_printf.h"
 #include "libft/libft.h"
 #include "minilibx-linux/mlx.h"
+
+/* main.c */
+void	free_tab_map(char **tab_map);
+void	affichetab(char **tab);
+/* ------ */
 
 /* add_file_tab */
 char	**generated_tab_for_map(char **argv);
