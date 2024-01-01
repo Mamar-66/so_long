@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 22:40:20 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/30 14:26:46 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/01 23:06:15 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ char	**generated_tab_for_map(char **argv)
 		exit (1);
 	}
 	tab_map_return = ft_split(on_line_for_tab, '\n');
+	if (!composee_caract(tab_map_return, COMPOSEE_MAP))
+	{
+		free_tab_map(tab_map_return);
+		tab_map_return = NULL;
+	}
 	free(on_line_for_tab);
 	close(key_map);
 	return (tab_map_return);

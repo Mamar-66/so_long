@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:21:14 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/30 14:27:12 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/01 23:05:41 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (ft_printf("error %d argument\n", argc));
 	map_tab = generated_tab_for_map(argv);
+	if (!map_tab)
+		exit(1);
 	affichetab(map_tab);
 	free_tab_map(map_tab);
 	return (1);

@@ -30,6 +30,9 @@ SRC	=	main.c \
 \
 		get_next_line/get_next_line.c \
 		get_next_line/get_next_line_utils.c \
+\
+		errors/chr_elem.c \
+		errors/print_error_comp.c \
 
 SRCS	=	$(addprefix $(SRC_PATH), $(SRC))
 
