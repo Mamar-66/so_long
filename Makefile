@@ -33,6 +33,7 @@ SRC	=	main.c \
 \
 		errors/chr_elem.c \
 		errors/print_error_comp.c \
+		errors/chr_output_valid.c \
 
 SRCS	=	$(addprefix $(SRC_PATH), $(SRC))
 

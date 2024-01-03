@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:16:55 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/02 00:04:00 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/03 12:00:02 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,10 @@ bool	verif_composee(char **tab_map, char *composee, t_list_maps *info_map);
 //////////////
 // print_error_comp.c
 bool	print_error_comp(t_list_maps *info_map);
+/////////////////////
+// chr_output_valid.c
+bool	chr_output_valid(char **tab_map);
+char	**dup_tab(char **tab_src);
 /////////////////////
 /* ----- */
 

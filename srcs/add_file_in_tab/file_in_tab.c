@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 22:40:20 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/01 23:06:15 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/03 10:42:54 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	**generated_tab_for_map(char **argv)
 	on_line_for_tab = on_a_line(key_map);
 	if (!on_line_for_tab)
 	{
-		ft_printf("error the file <%s> is empty", argv[1]);
+		ft_printf("error the file <%s> is empty\n", argv[1]);
 		exit (1);
 	}
 	tab_map_return = ft_split(on_line_for_tab, '\n');
