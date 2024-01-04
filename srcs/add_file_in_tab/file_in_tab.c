@@ -6,13 +6,13 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 22:40:20 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/03 10:42:54 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/04 13:58:13 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-char	**generated_tab_for_map(char **argv)
+char	**generated_tab_for_map(char **argv, t_list_mlx *lst_mlx)
 {
 	char	**tab_map_return;
 	char	*on_line_for_tab;
@@ -31,7 +31,7 @@ char	**generated_tab_for_map(char **argv)
 		exit (1);
 	}
 	tab_map_return = ft_split(on_line_for_tab, '\n');
-	if (!composee_caract(tab_map_return, COMPOSEE_MAP))
+	if (!composee_caract(tab_map_return, COMPOSEE_MAP, lst_mlx))
 	{
 		free_tab_map(tab_map_return);
 		tab_map_return = NULL;

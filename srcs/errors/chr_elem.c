@@ -6,13 +6,13 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 20:59:25 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/02 00:24:50 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/04 14:14:49 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-bool	composee_caract(char **tab_map, char *composee)
+bool	composee_caract(char **tab_map, char *composee, t_list_mlx *lst_mlx)
 {
 	t_list_maps	*info_map;
 
@@ -23,12 +23,14 @@ bool	composee_caract(char **tab_map, char *composee)
 	info_map->C = 0;
 	info_map->E = 0;
 	info_map->len = strlen(tab_map[0]);
+	lst_mlx->width = info_map->len;
 	if (!verif_map(tab_map, composee, info_map)
 	|| !verif_composee(tab_map, composee, info_map))
 	{
 		free(info_map);
 		return (false);
 	}
+	lst_mlx->lenght = info_map->lenght;
 	free(info_map);
 	return (true);
 }
@@ -124,5 +126,6 @@ bool	verif_composee(char **tab_map, char *composee, t_list_maps *info_map)
 		i = 0;
 		j++;
 	}
+	info_map->lenght = j;
 	return (print_error_comp(info_map));
 }

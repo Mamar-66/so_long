@@ -34,6 +34,10 @@ SRC	=	main.c \
 		errors/chr_elem.c \
 		errors/print_error_comp.c \
 		errors/chr_output_valid.c \
+\
+		graphique/creat_graph.c \
+\
+		utiles/dup_tab.c \
 
 SRCS	=	$(addprefix $(SRC_PATH), $(SRC))
 
@@ -54,6 +58,7 @@ $(OBJ_PATH):
 			mkdir $(OBJ_PATH)/errors
 			mkdir $(OBJ_PATH)/utiles
 			mkdir $(OBJ_PATH)/get_next_line
+			mkdir $(OBJ_PATH)/graphique
 
 libft:
 	@echo "\033[0;33m\nCOMPILING LIBFT$(LIBFT_PATH)\n"

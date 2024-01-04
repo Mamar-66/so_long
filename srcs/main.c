@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:21:14 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/03 12:17:59 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/04 14:15:17 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 
 int	main(int argc, char **argv)
 {
-	char	**map_tab;
+	t_list_mlx	lst_mlx;
 
 	if (argc < 2)
 		return (ft_printf("error %d argument\n", argc));
-	map_tab = generated_tab_for_map(argv);
-	if (!map_tab)
+	lst_mlx.map_tab = generated_tab_for_map(argv, &lst_mlx);
+	if (!lst_mlx.map_tab)
 		exit(1);
-	chr_output_valid(dup_tab(map_tab));
-	affichetab(map_tab);
-	free_tab_map(map_tab);
+	if (!chr_output_valid(dup_tab(lst_mlx.map_tab)))
+	{
+		free_tab_map(lst_mlx.map_tab);
+		exit (1);
+	}
+	add_graphe(argv, &lst_mlx);
+	affichetab(lst_mlx.map_tab);
+	free_tab_map(lst_mlx.map_tab);
 	return (1);
 }
 
