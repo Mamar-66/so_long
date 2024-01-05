@@ -82,6 +82,9 @@ $(NAME):	mlx libft ft_printf $(OBJS)
 
 clean:
 		rm -rf $(OBJ_PATH)
+		make -sC $(LIBFT_PATH) clean
+		make -sC $(MLX_PATH) clean
+		make -sC $(FT_PRINTF_PATH) clean
 
 fclean:	clean
 		rm -rf $(NAME)

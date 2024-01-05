@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:16:55 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/04 14:16:21 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/04 21:32:30 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 #include <X11/keysym.h>
 
 #define COMPOSEE_MAP "01CEP"
+#define MUL_WIN	64
 
 typedef struct s_list_maps
 {
@@ -44,12 +45,14 @@ typedef struct s_list_x_y
 
 typedef struct s_list_minilx
 {
-	char	**map_tab;
-	int		lenght;
-	int		width;
-	int		mult;
-	void 	*ptr_mlx;
-	void 	*win_mlx;
+	char		**map_tab;
+	int			lenght;
+	int			width;
+	// int			mult;
+	void 		*ptr_mlx;
+	void 		*win_mlx;
+	void		*img_mur;
+	t_list_maps	lst_map;
 }	t_list_mlx;
 
 
@@ -79,8 +82,8 @@ bool	verif_composee(char **tab_map, char *composee, t_list_maps *info_map);
 bool	print_error_comp(t_list_maps *info_map);
 /////////////////////
 // chr_output_valid.c
-bool	chr_output_valid(char **tab_map);
-bool	find_way(char **tab_map, int x, int y, char *composee);
+bool	chr_output_valid(char **tab_map, t_list_mlx *lst_mlx);
+bool	find_way(char **tab_map, int x, int y, t_list_mlx *lst_mlx);
 void	chr_pos(char **tab_map, t_list_x_y *x_y,char *composee);
 /////////////////////
 /* ----- */
@@ -89,7 +92,7 @@ void	chr_pos(char **tab_map, t_list_x_y *x_y,char *composee);
 char	**dup_tab(char **tab_src);
 ///////////
 /* graphique */
-void	add_graphe(char **argv, t_list_mlx *lst_mlx);
+void	add_graphe(t_list_mlx *lst_mlx);
 /* --------- */
 /* ----- */
 #endif

@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 20:59:25 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/04 14:14:49 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/04 21:06:33 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ bool	composee_caract(char **tab_map, char *composee, t_list_mlx *lst_mlx)
 	info_map->len = strlen(tab_map[0]);
 	lst_mlx->width = info_map->len;
 	if (!verif_map(tab_map, composee, info_map)
-	|| !verif_composee(tab_map, composee, info_map))
+		|| !verif_composee(tab_map, composee, info_map))
 	{
 		free(info_map);
 		return (false);
@@ -60,23 +60,23 @@ bool	medum_tab_map(char *tab_map, char *composee)
 	i = -1;
 	while (tab_map[++i])
 	{
-		j = 0;
-		while (composee[j])
+		j = -1;
+		while (composee[++j])
 		{
 			if (tab_map[i] == composee[j])
-				break;
-			j++;
+				break ;
 		}
 		if (composee[j] == '\0')
 		{
-			ft_printf("character \"%c\" is not part of the map component\n", tab_map[i]);
+			ft_printf("character \"%c\" is not part of the map component\n",
+				tab_map[i]);
 			return (false);
 		}
 	}
 	if (tab_map[0] != composee[1] || tab_map[i - 1] != composee[1])
 	{
-			ft_printf("error on the delimitation of the maps (medum)\n");
-			return (false);
+		ft_printf("error on the delimitation of the maps (medum)\n");
+		return (false);
 	}
 	return (i);
 }
@@ -92,7 +92,7 @@ bool	verif_map(char **tab_map, char *composee, t_list_maps *info_map)
 	{
 		if (!medum_tab_map(tab_map[j], composee))
 			return (false);
-		if ((int)strlen(tab_map[j] ) != info_map->len)
+		if ((int)strlen(tab_map[j]) != info_map->len)
 		{
 			ft_printf("error size map\n");
 			return (false);
