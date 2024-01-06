@@ -38,6 +38,7 @@ SRC	=	main.c \
 		graphique/creat_graph.c \
 \
 		utiles/dup_tab.c \
+		utiles/my_function_free.c \
 
 SRCS	=	$(addprefix $(SRC_PATH), $(SRC))
 

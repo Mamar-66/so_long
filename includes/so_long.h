@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:16:55 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/04 21:32:30 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/06 14:08:29 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,16 @@ typedef struct s_list_minilx
 	// int			mult;
 	void 		*ptr_mlx;
 	void 		*win_mlx;
+	void		*img_player_profil;
 	void		*img_mur;
+	void		*img_floor;
+	void		*img_item;
+	void		*img_door[2];
 	t_list_maps	lst_map;
 }	t_list_mlx;
 
 
 /* main.c */
-void	free_tab_map(char **tab_map);
 void	affichetab(char **tab);
 /* ------ */
 
@@ -87,12 +90,21 @@ bool	find_way(char **tab_map, int x, int y, t_list_mlx *lst_mlx);
 void	chr_pos(char **tab_map, t_list_x_y *x_y,char *composee);
 /////////////////////
 /* ----- */
+
 /* utile */
 // dup_tab.c
 char	**dup_tab(char **tab_src);
 ///////////
+// my_functiom_free.c
+void	free_tab_map(char **tab_map);
+void	my_free_img(t_list_mlx *lst_mlx);
+int		stop(t_list_mlx *my_params);
+/////////////////////
+/*-------*/
 /* graphique */
+// creat_graph.c
 void	add_graphe(t_list_mlx *lst_mlx);
+////////////////
 /* --------- */
 /* ----- */
 #endif
