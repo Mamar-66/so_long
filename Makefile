@@ -36,6 +36,8 @@ SRC	=	main.c \
 		errors/chr_output_valid.c \
 \
 		graphique/creat_graph.c \
+		graphique/add_graph.c \
+		graphique/mov_player.c \
 \
 		utiles/dup_tab.c \
 		utiles/my_function_free.c \

@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 11:58:20 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/06 12:23:10 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/06 17:59:12 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,18 @@ void	my_free_img(t_list_mlx *lst_mlx)
 {
 	if (lst_mlx->img_mur)
 		mlx_destroy_image(lst_mlx->ptr_mlx, lst_mlx->img_mur);
+	if (lst_mlx->img_floor)
+		mlx_destroy_image(lst_mlx->ptr_mlx, lst_mlx->img_floor);
+	if (lst_mlx->img_item)
+		mlx_destroy_image(lst_mlx->ptr_mlx, lst_mlx->img_item);
+	if (lst_mlx->img_player_profil)
+		mlx_destroy_image(lst_mlx->ptr_mlx, lst_mlx->img_player_profil);
+	if (lst_mlx->img_player_right)
+		mlx_destroy_image(lst_mlx->ptr_mlx, lst_mlx->img_player_right);
+	if (lst_mlx->img_player_left)
+		mlx_destroy_image(lst_mlx->ptr_mlx, lst_mlx->img_player_left);
+	if (lst_mlx->img_player_back)
+		mlx_destroy_image(lst_mlx->ptr_mlx, lst_mlx->img_player_back);
 	if (lst_mlx->img_door[0])
 		mlx_destroy_image(lst_mlx->ptr_mlx, lst_mlx->img_door[0]);
 	if (lst_mlx->img_door[1])

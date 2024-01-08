@@ -6,31 +6,31 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:16:55 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/06 14:08:29 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/08 12:00:10 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include <stdbool.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include "printf/include/ft_printf.h"
-#include "libft/libft.h"
-#include "minilibx-linux/mlx.h"
-#include <X11/keysym.h>
+# include <stdbool.h>
+# include <fcntl.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <string.h>
+# include "printf/include/ft_printf.h"
+# include "libft/libft.h"
+# include "minilibx-linux/mlx.h"
+# include <X11/keysym.h>
 
-#define COMPOSEE_MAP "01CEP"
-#define MUL_WIN	64
+# define COMPOSEE_MAP "01CEP"
+# define MUL_WIN	64
 
 typedef struct s_list_maps
 {
-	int	P;
-	int	C;
-	int	E;
+	int	p;
+	int	c;
+	int	e;
 	int	len;
 	int	lenght;
 }	t_list_maps;
@@ -48,17 +48,19 @@ typedef struct s_list_minilx
 	char		**map_tab;
 	int			lenght;
 	int			width;
-	// int			mult;
-	void 		*ptr_mlx;
-	void 		*win_mlx;
+	void		*ptr_mlx;
+	void		*win_mlx;
 	void		*img_player_profil;
+	void		*img_player_right;
+	void		*img_player_left;
+	void		*img_player_back;
 	void		*img_mur;
 	void		*img_floor;
 	void		*img_item;
 	void		*img_door[2];
 	t_list_maps	lst_map;
+	t_list_x_y	lst_x_y;
 }	t_list_mlx;
-
 
 /* main.c */
 void	affichetab(char **tab);
@@ -87,7 +89,7 @@ bool	print_error_comp(t_list_maps *info_map);
 // chr_output_valid.c
 bool	chr_output_valid(char **tab_map, t_list_mlx *lst_mlx);
 bool	find_way(char **tab_map, int x, int y, t_list_mlx *lst_mlx);
-void	chr_pos(char **tab_map, t_list_x_y *x_y,char *composee);
+void	chr_pos(char **tab_map, t_list_x_y *x_y, char *composee);
 /////////////////////
 /* ----- */
 
@@ -103,8 +105,16 @@ int		stop(t_list_mlx *my_params);
 /*-------*/
 /* graphique */
 // creat_graph.c
-void	add_graphe(t_list_mlx *lst_mlx);
+bool	gen_img(t_list_mlx *lst_mlx);
+bool	put_img(t_list_mlx *lst_mlx);
 ////////////////
+// add_graph.c
+void	add_graphe(t_list_mlx *lst_mlx);
+int		my_function(int keycode, void *param);
+//////////////
+// mov_player.c
+void	mov_player(int keycode, t_list_mlx *lst_mlx);
+///////////////
 /* --------- */
 /* ----- */
 #endif

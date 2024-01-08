@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 20:59:25 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/04 21:06:33 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/06 18:06:48 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ bool	composee_caract(char **tab_map, char *composee, t_list_mlx *lst_mlx)
 	info_map = malloc(sizeof(t_list_maps) * 1);
 	if (!info_map)
 		return (false);
-	info_map->P = 0;
-	info_map->C = 0;
-	info_map->E = 0;
+	info_map->p = 0;
+	info_map->c = 0;
+	info_map->e = 0;
 	info_map->len = strlen(tab_map[0]);
 	lst_mlx->width = info_map->len;
 	if (!verif_map(tab_map, composee, info_map)
@@ -116,11 +116,11 @@ bool	verif_composee(char **tab_map, char *composee, t_list_maps *info_map)
 		while (tab_map[j][i])
 		{
 			if (tab_map[j][i] == composee[4])
-				info_map->P++;
+				info_map->p++;
 			else if (tab_map[j][i] == composee[3])
-				info_map->E++;
+				info_map->e++;
 			else if (tab_map[j][i] == composee[2])
-				info_map->C++;
+				info_map->c++;
 			i++;
 		}
 		i = 0;
