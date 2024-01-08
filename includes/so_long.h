@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:16:55 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/08 12:00:10 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/08 18:03:55 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_list_x_y
 	int	y_p;
 	int	x_e;
 	int	y_e;
+	int			mov;
 }	t_list_x_y;
 
 typedef struct s_list_minilx
@@ -106,7 +107,8 @@ int		stop(t_list_mlx *my_params);
 /* graphique */
 // creat_graph.c
 bool	gen_img(t_list_mlx *lst_mlx);
-bool	put_img(t_list_mlx *lst_mlx);
+void	put_img(t_list_mlx *lst_mlx);
+void	put_img_2(t_list_mlx *lst_mlx);
 ////////////////
 // add_graph.c
 void	add_graphe(t_list_mlx *lst_mlx);

@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 11:56:00 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/08 13:37:14 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/08 18:04:10 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,17 @@ static void	mov_up(t_list_mlx *lst_mlx)
 	if (lst_mlx->map_tab[--y][lst_mlx->lst_x_y.x_p] != COMPOSEE_MAP[1])
 	{
 		lst_mlx->lst_x_y.y_p = y;
-		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx, lst_mlx->img_floor,
+		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,
+			lst_mlx->img_floor,
 			lst_mlx->lst_x_y.x_p * MUL_WIN, ++lst_mlx->lst_x_y.y_p * MUL_WIN);
-		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx, lst_mlx->img_player_back,
+		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,
+			lst_mlx->img_player_back,
 			lst_mlx->lst_x_y.x_p * MUL_WIN, --lst_mlx->lst_x_y.y_p * MUL_WIN);
 	}
 	else
 	{
-		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx, lst_mlx->img_player_back,
+		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,
+			lst_mlx->img_player_back,
 			lst_mlx->lst_x_y.x_p * MUL_WIN, lst_mlx->lst_x_y.y_p * MUL_WIN);
 	}
 }
@@ -40,14 +43,17 @@ static void	mov_right(t_list_mlx *lst_mlx)
 	if (lst_mlx->map_tab[lst_mlx->lst_x_y.y_p][++x] != COMPOSEE_MAP[1])
 	{
 		lst_mlx->lst_x_y.x_p = x;
-		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx, lst_mlx->img_floor,
-		--lst_mlx->lst_x_y.x_p * MUL_WIN, lst_mlx->lst_x_y.y_p * MUL_WIN);
-		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,lst_mlx->img_player_right,
+		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,
+			lst_mlx->img_floor,
+			--lst_mlx->lst_x_y.x_p * MUL_WIN, lst_mlx->lst_x_y.y_p * MUL_WIN);
+		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,
+			lst_mlx->img_player_right,
 			++lst_mlx->lst_x_y.x_p * MUL_WIN, lst_mlx->lst_x_y.y_p * MUL_WIN);
 	}
 	else
 	{
-		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,lst_mlx->img_player_right,
+		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,
+			lst_mlx->img_player_right,
 			lst_mlx->lst_x_y.x_p * MUL_WIN, lst_mlx->lst_x_y.y_p * MUL_WIN);
 	}
 }
@@ -60,14 +66,17 @@ static void	mov_left(t_list_mlx *lst_mlx)
 	if (lst_mlx->map_tab[lst_mlx->lst_x_y.y_p][--x] != COMPOSEE_MAP[1])
 	{
 		lst_mlx->lst_x_y.x_p = x;
-		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx, lst_mlx->img_floor,
-		++lst_mlx->lst_x_y.x_p * MUL_WIN, lst_mlx->lst_x_y.y_p * MUL_WIN);
-		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,lst_mlx->img_player_left,
+		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,
+			lst_mlx->img_floor,
+			++lst_mlx->lst_x_y.x_p * MUL_WIN, lst_mlx->lst_x_y.y_p * MUL_WIN);
+		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,
+			lst_mlx->img_player_left,
 			--lst_mlx->lst_x_y.x_p * MUL_WIN, lst_mlx->lst_x_y.y_p * MUL_WIN);
 	}
 	else
 	{
-		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,lst_mlx->img_player_left,
+		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,
+			lst_mlx->img_player_left,
 			lst_mlx->lst_x_y.x_p * MUL_WIN, lst_mlx->lst_x_y.y_p * MUL_WIN);
 	}
 }
@@ -80,14 +89,17 @@ static void	mov_down(t_list_mlx *lst_mlx)
 	if (lst_mlx->map_tab[++y][lst_mlx->lst_x_y.x_p] != COMPOSEE_MAP[1])
 	{
 		lst_mlx->lst_x_y.y_p = y;
-		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx, lst_mlx->img_floor,
+		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,
+			lst_mlx->img_floor,
 			lst_mlx->lst_x_y.x_p * MUL_WIN, --lst_mlx->lst_x_y.y_p * MUL_WIN);
-		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx, lst_mlx->img_player_profil,
+		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,
+			lst_mlx->img_player_profil,
 			lst_mlx->lst_x_y.x_p * MUL_WIN, ++lst_mlx->lst_x_y.y_p * MUL_WIN);
 	}
 	else
 	{
-		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx, lst_mlx->img_player_profil,
+		mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,
+			lst_mlx->img_player_profil,
 			lst_mlx->lst_x_y.x_p * MUL_WIN, lst_mlx->lst_x_y.y_p * MUL_WIN);
 	}
 }
@@ -102,4 +114,11 @@ void	mov_player(int keycode, t_list_mlx *lst_mlx)
 		mov_left(lst_mlx);
 	else if (keycode == 115 || keycode == XK_Down)
 		mov_down(lst_mlx);
+	if (lst_mlx->map_tab[lst_mlx->lst_x_y.y_p]
+		[lst_mlx->lst_x_y.x_p] == COMPOSEE_MAP[2])
+	{
+		lst_mlx->map_tab[lst_mlx->lst_x_y.y_p]
+		[lst_mlx->lst_x_y.x_p] = COMPOSEE_MAP[0];
+		--lst_mlx->lst_map.c;
+	}
 }

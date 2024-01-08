@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 22:47:10 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/08 13:13:31 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/08 16:04:44 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ bool	gen_img(t_list_mlx *lst_mlx)
 	return (true);
 }
 
-bool	put_img(t_list_mlx *lst_mlx)
+void	put_img(t_list_mlx *lst_mlx)
 {
 	int	i;
 	int	j;
@@ -69,19 +69,40 @@ bool	put_img(t_list_mlx *lst_mlx)
 		while (lst_mlx->map_tab[j][i])
 		{
 			if (lst_mlx->map_tab[j][i] == COMPOSEE_MAP[1])
-				mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx, lst_mlx->img_mur, i * MUL_WIN, j * MUL_WIN);
+				mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,
+					lst_mlx->img_mur, i * MUL_WIN, j * MUL_WIN);
 			else if (lst_mlx->map_tab[j][i] == COMPOSEE_MAP[0])
-				mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx, lst_mlx->img_floor, i * MUL_WIN, j * MUL_WIN);
-			else if (lst_mlx->map_tab[j][i] == COMPOSEE_MAP[2])
-				mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx, lst_mlx->img_item, i * MUL_WIN, j * MUL_WIN);
-			else if (lst_mlx->map_tab[j][i] == COMPOSEE_MAP[3])
-				mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx, lst_mlx->img_door[0], i * MUL_WIN, j * MUL_WIN);
-			else if (lst_mlx->map_tab[j][i] == COMPOSEE_MAP[4])
-				mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx, lst_mlx->img_player_profil, i * MUL_WIN, j * MUL_WIN);
+				mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,
+					lst_mlx->img_floor, i * MUL_WIN, j * MUL_WIN);
 			i++;
 		}
 		j++;
 	}
-	return (true);
+	put_img_2(lst_mlx);
 }
 
+void	put_img_2(t_list_mlx *lst_mlx)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	while (lst_mlx->map_tab[j])
+	{
+		i = 0;
+		while (lst_mlx->map_tab[j][i])
+		{
+			if (lst_mlx->map_tab[j][i] == COMPOSEE_MAP[2])
+				mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,
+					lst_mlx->img_item, i * MUL_WIN, j * MUL_WIN);
+			else if (lst_mlx->map_tab[j][i] == COMPOSEE_MAP[3])
+				mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,
+					lst_mlx->img_door[0], i * MUL_WIN, j * MUL_WIN);
+			else if (lst_mlx->map_tab[j][i] == COMPOSEE_MAP[4])
+				mlx_put_image_to_window(lst_mlx->ptr_mlx, lst_mlx->win_mlx,
+					lst_mlx->img_player_profil, i * MUL_WIN, j * MUL_WIN);
+			i++;
+		}
+		j++;
+	}
+}
