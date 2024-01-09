@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:51:33 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/09 11:59:23 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/09 21:28:24 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,24 +54,22 @@ void	chr_pos(char **tab_map, t_list_x_y *x_y, char *composee)
 	int	i;
 	int	j;
 
-	j = 0;
-	while (tab_map[j])
+	j = -1;
+	while (tab_map[++j])
 	{
-		i = 0;
-		while (tab_map[j][i])
+		i = -1;
+		while (tab_map[j][++i])
 		{
 			if (tab_map[j][i] == composee[4])
 			{
 				x_y->y_p = j;
 				x_y->x_p = i;
 			}
-			if (tab_map[j][i] == composee[3])
+			else if (tab_map[j][i] == composee[3])
 			{
 				x_y->y_e = j;
 				x_y->x_e = i;
 			}
-			i++;
 		}
-		j++;
 	}
 }

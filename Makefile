@@ -39,6 +39,7 @@ SRC	=	main.c \
 		graphique/add_graph.c \
 		graphique/mov_player.c \
 		graphique/gest_enemi.c \
+		graphique/mov_enemi.c \
 \
 		utiles/dup_tab.c \
 		utiles/my_function_free.c \

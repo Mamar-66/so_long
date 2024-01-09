@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:16:55 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/09 17:34:50 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/09 22:40:50 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 
 # define COMPOSEE_MAP "01CEPX"
 # define MUL_WIN	64
+# define TEMPS	10000
 
 typedef struct s_list_maps
 {
@@ -37,11 +38,14 @@ typedef struct s_list_maps
 
 typedef struct s_list_x_y
 {
-	int	x_p;
-	int	y_p;
-	int	x_e;
-	int	y_e;
-	int			mov;
+	int		x_p;
+	int		y_p;
+	int		x_e;
+	int		y_e;
+	int		x_n;
+	int		y_n;
+	int		mov;
+	int		temp;
 }	t_list_x_y;
 
 typedef struct s_list_minilx
@@ -125,8 +129,16 @@ int		my_function(int keycode, void *param);
 void	mov_player(int keycode, t_list_mlx *lst_mlx);
 ///////////////
 // gest_enemie.c
-
+int		gest_mov_enemi(t_list_mlx *lst_mlx);
+void	mov_enemi(int keycode, t_list_mlx *lst_mlx);
+void	enemi_animation(t_list_mlx *lst_mlx);
 ////////////////
+// mov_enemi.c
+bool	enemi_mov_up(t_list_mlx *lst_mlx);
+bool	enemi_mov_right(t_list_mlx *lst_mlx);
+bool	enemi_mov_left(t_list_mlx *lst_mlx);
+bool	enemi_mov_down(t_list_mlx *lst_mlx);
+///////////////
 /* --------- */
 /* ----- */
 #endif

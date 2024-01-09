@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:21:14 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/08 18:08:26 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/09 20:12:40 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char **argv)
 		exit (1);
 	}
 	lst_mlx.lst_x_y.mov = 0;
+	lst_mlx.lst_x_y.temp = 0;
 	add_graphe(&lst_mlx);
 	affichetab(lst_mlx.map_tab);
 	free_tab_map(lst_mlx.map_tab);

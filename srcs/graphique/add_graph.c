@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 17:38:19 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/09 18:14:00 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/09 21:06:04 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ void	add_graphe(t_list_mlx *lst_mlx)
 		my_function, (void *)lst_mlx);
 	mlx_hook(lst_mlx->win_mlx, 17, 0L, stop, (void *)lst_mlx);
 	put_img(lst_mlx);
-	mlx_loop_hook(lst_mlx->ptr_mlx, mov_enemi, (void *)lst_mlx);
+	mlx_loop_hook(lst_mlx->ptr_mlx, gest_mov_enemi, (void *)lst_mlx);
 	mlx_loop(lst_mlx->ptr_mlx);
 }
