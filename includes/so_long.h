@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:16:55 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/08 18:03:55 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/09 17:34:50 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include "minilibx-linux/mlx.h"
 # include <X11/keysym.h>
 
-# define COMPOSEE_MAP "01CEP"
+# define COMPOSEE_MAP "01CEPX"
 # define MUL_WIN	64
 
 typedef struct s_list_maps
@@ -55,6 +55,10 @@ typedef struct s_list_minilx
 	void		*img_player_right;
 	void		*img_player_left;
 	void		*img_player_back;
+	void		*img_enemi_profil;
+	void		*img_enemi_right;
+	void		*img_enemi_left;
+	void		*img_enemi_back;
 	void		*img_mur;
 	void		*img_floor;
 	void		*img_item;
@@ -101,14 +105,17 @@ char	**dup_tab(char **tab_src);
 // my_functiom_free.c
 void	free_tab_map(char **tab_map);
 void	my_free_img(t_list_mlx *lst_mlx);
+void	my_free_img_enemi(t_list_mlx *lst_mlx);
 int		stop(t_list_mlx *my_params);
 /////////////////////
 /*-------*/
 /* graphique */
 // creat_graph.c
+bool	gen_img_player(t_list_mlx *lst_mlx);
 bool	gen_img(t_list_mlx *lst_mlx);
 void	put_img(t_list_mlx *lst_mlx);
 void	put_img_2(t_list_mlx *lst_mlx);
+bool	gen_img_enemi(t_list_mlx *lst_mlx);
 ////////////////
 // add_graph.c
 void	add_graphe(t_list_mlx *lst_mlx);
@@ -117,6 +124,9 @@ int		my_function(int keycode, void *param);
 // mov_player.c
 void	mov_player(int keycode, t_list_mlx *lst_mlx);
 ///////////////
+// gest_enemie.c
+
+////////////////
 /* --------- */
 /* ----- */
 #endif

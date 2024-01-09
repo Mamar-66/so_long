@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 11:58:20 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/06 17:59:12 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/09 17:34:27 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,19 @@ void	my_free_img(t_list_mlx *lst_mlx)
 		mlx_destroy_image(lst_mlx->ptr_mlx, lst_mlx->img_door[0]);
 	if (lst_mlx->img_door[1])
 		mlx_destroy_image(lst_mlx->ptr_mlx, lst_mlx->img_door[1]);
+	my_free_img_enemi(lst_mlx);
+}
+
+void	my_free_img_enemi(t_list_mlx *lst_mlx)
+{
+	if (lst_mlx->img_enemi_profil)
+		mlx_destroy_image(lst_mlx->ptr_mlx, lst_mlx->img_enemi_profil);
+	if (lst_mlx->img_enemi_right)
+		mlx_destroy_image(lst_mlx->ptr_mlx, lst_mlx->img_enemi_right);
+	if (lst_mlx->img_enemi_left)
+		mlx_destroy_image(lst_mlx->ptr_mlx, lst_mlx->img_enemi_left);
+	if (lst_mlx->img_enemi_back)
+		mlx_destroy_image(lst_mlx->ptr_mlx, lst_mlx->img_enemi_back);
 }
 
 int	stop(t_list_mlx *my_params)
@@ -56,3 +69,4 @@ int	stop(t_list_mlx *my_params)
 	free_tab_map(my_params->map_tab);
 	return (exit (1), 0);
 }
+

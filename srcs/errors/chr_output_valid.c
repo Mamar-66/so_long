@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:51:33 by omfelk            #+#    #+#             */
-/*   Updated: 2024/01/08 13:10:33 by omfelk           ###   ########.fr       */
+/*   Updated: 2024/01/09 11:59:23 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	chr_output_valid(char **tab_map, t_list_mlx *lst_mlx)
 	lst_mlx->lst_map.c = 0;
 	lst_mlx->lst_map.e = 0;
 	verif_composee(tab_map, COMPOSEE_MAP, &lst_mlx->lst_map);
-	find_way(tab_map, lst_mlx->lst_x_y.x_p, lst_mlx->lst_x_y.y_p, lst_mlx);
+	find_way(tab_map, lst_mlx->lst_x_y.y_p, lst_mlx->lst_x_y.x_p, lst_mlx);
 	if (lst_mlx->lst_map.e != 0 || lst_mlx->lst_map.c != 0)
 	{
 		if (lst_mlx->lst_map.e != 0)
